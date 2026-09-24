@@ -167,7 +167,7 @@ dialog[open]::backdrop{animation:fadein .25s ease}
 <dialog id="lb" aria-label="Preview"><div class="lb"><div id="lbmedia"></div><div class="bar"><a id="lbopen" href="#" target="_blank" rel="noopener">Open full size</a><button type="button" id="lbclose">Close</button></div></div></dialog>
 
 <script>
-/* Edit these lists. Each work item is [file number, "i" image or "v" video, alt text, 1 if it should loop]. Files live in assets/ named <slug>-<number>. */
+/* Edit these lists. Each work item is [file number, "i" image or "v" video, alt text, 1 if it should loop]. Files live in assets/<slug>/ named <slug>-<number>. */
 var WORK=[{"slug":"skillo","title":"Skillo Innovations","text":"Brand and marketing images for the Skillo Innovations business.","contain":0,"items":[["01","i","Skillo Innovations sample 1"],["02","i","Skillo Innovations sample 2"],["03","i","Skillo Innovations sample 3"],["04","i","Skillo Innovations sample 4"],["05","i","Skillo Innovations sample 5"],["06","i","Skillo Innovations sample 6"],["07","i","Skillo Innovations sample 7"],["08","i","Skillo Innovations sample 8"],["09","i","Skillo Innovations sample 9"],["10","i","Skillo Innovations sample 10"],["11","i","Skillo Innovations sample 11"],["12","i","Skillo Innovations sample 12"],["13","i","Skillo Innovations sample 13"],["14","i","Skillo Innovations sample 14"],["15","i","Skillo Innovations sample 15"],["16","i","Skillo Innovations sample 16"],["17","i","Skillo Innovations sample 17"],["18","i","Skillo Innovations sample 18"],["19","i","Skillo Innovations sample 19"],["20","i","Skillo Innovations sample 20"],["21","i","Skillo Innovations sample 21"],["22","i","Skillo Innovations sample 22"],["23","i","Skillo Innovations sample 23"],["24","i","Skillo Innovations sample 24"],["25","i","Skillo Innovations sample 25"],["26","i","Skillo Innovations sample 26"],["27","i","Skillo Innovations sample 27"],["28","i","Skillo Innovations sample 28"],["29","i","Skillo Innovations sample 29"],["30","i","Skillo Innovations sample 30"],["31","i","Skillo Innovations sample 31"],["32","i","Skillo Innovations sample 32"],["33","i","Skillo Innovations sample 33"]]},
 {"slug":"ai-video","title":"AI video generation","text":"Short video samples made with AI tools.","contain":0,"items":[["01","v","AI video generation sample 1"],["02","v","AI video generation sample 2"],["03","v","AI video generation sample 3"]]},
 {"slug":"real-estate","title":"Real estate content","text":"AI-generated flyers and an image-to-video sample for property marketing.","contain":0,"items":[["01","i","Real estate content sample 1"],["02","i","Real estate content sample 2"],["03","i","Real estate content sample 3"],["04","i","Real estate content sample 4"],["05","v","Real estate content sample 5"]]},
@@ -185,7 +185,7 @@ var JOBS=[
 var SKILLS=["Executive support","Google Workspace","Microsoft Office","Photoshop","Canva","Video editing","Social media management","AI automation","IT troubleshooting","Customer service"];
 
 var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
-var A=function(c,it,th){return "assets/"+c.slug+"-"+it[0]+(th?"-th.webp":it[1]==="v"?".mp4":".webp")};
+var A=function(c,it,th){return "assets/"+c.slug+"/"+c.slug+"-"+it[0]+(th?"-th.webp":it[1]==="v"?".mp4":".webp")};
 
 document.getElementById("projects").innerHTML=WORK.map(function(c){
  var grid='<div class="grid'+(c.contain?' contain':'')+'">'+c.items.map(function(it,n){

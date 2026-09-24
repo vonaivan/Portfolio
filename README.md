@@ -22,6 +22,9 @@ A fast, accessible, single-file portfolio site. No build step, no dependencies.
 ## License
 MIT. See `LICENSE`.
 
+## Work dropdowns
+Each category in `WORK` lists Google Drive file IDs. Thumbnails only load if the files are shared as "Anyone with the link can view". To use your own hosted images instead, replace the `thumb()` function with paths to files in `assets/`.
+
 ## Adding your images
 The work list links to public Google Drive folders. To show images on the site itself:
 1. Set each Drive folder to "Anyone with the link can view", or download the files.

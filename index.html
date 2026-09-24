@@ -2,74 +2,98 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Von Aivan De Guzman — Virtual Assistant & Designer</title>
-<meta name="description" content="Von Aivan De Guzman: virtual assistant, graphic designer and social media manager. AI video, e-commerce visuals, print layouts, logos and brand pages.">
+<meta name="description" content="Von Aivan De Guzman: virtual assistant, graphic designer and social media manager.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#eef1f6;--ink:#16223b;--muted:#5a6680;--line:#c9d1e0;--accent:#2f4bff;--accent-ink:#fff;
+:root{--bg:#eadfc9;--surface:#f4ecdb;--ink:#382d22;--muted:#66573f;--line:#cdbd9f;--accent:#3f5a3a;--accent-ink:#f4ecdb;
  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;--body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
- box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1526;--ink:#e8ecf8;--muted:#95a1bf;--line:#26304d;--accent:#8ea0ff;--accent-ink:#0f1526}}
-:root[data-theme="dark"]{--bg:#0f1526;--ink:#e8ecf8;--muted:#95a1bf;--line:#26304d;--accent:#8ea0ff;--accent-ink:#0f1526}
+ box-sizing:border-box;padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#221d16;--surface:#2c261d;--ink:#f0e6d2;--muted:#b3a78f;--line:#453c2d;--accent:#b7c98a;--accent-ink:#221d16}}
+:root[data-theme="dark"]{--bg:#221d16;--surface:#2c261d;--ink:#f0e6d2;--muted:#b3a78f;--line:#453c2d;--accent:#b7c98a;--accent-ink:#221d16}
 *,*::before,*::after{box-sizing:inherit}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:2px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
 .wrap{max-width:66rem;margin:0 auto;padding:0 1.5rem}
-header.top{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0}
+header.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:.9rem;padding-bottom:.9rem}
 nav{display:flex;gap:1.5rem;align-items:center}
 nav a{text-decoration:none;color:var(--muted)}nav a:hover{color:var(--ink)}
 #theme{font:inherit;background:none;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:.3rem .9rem;cursor:pointer}
 #theme:hover{border-color:var(--accent)}
-.hero{padding:clamp(3rem,10vw,7rem) 0 clamp(3rem,8vw,5rem)}
+.hero{padding:clamp(3rem,9vw,6rem) 0 clamp(3rem,8vw,5rem)}
+.pill{display:inline-flex;align-items:center;gap:.6rem;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.35rem 1rem;font-size:.95rem;margin-bottom:1.5rem}
+.pill i{width:.6rem;height:.6rem;border-radius:50%;background:var(--accent);animation:pulse 2s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 55%,transparent)}100%{box-shadow:0 0 0 .7rem transparent}}
 .hero h1{margin:0;font-family:var(--display);font-size:clamp(3rem,11vw,8.5rem);line-height:.95;letter-spacing:-.03em;
  font-variation-settings:"wght" var(--w,700),"wdth" var(--wd,90),"opsz" 96;transition:font-variation-settings .15s linear}
-.hero p{max-width:34rem;font-size:1.25rem;color:var(--muted);margin:2rem 0 0}
-.hero .cta{display:inline-block;margin-top:2rem;padding:.8rem 1.4rem;background:var(--accent);color:var(--accent-ink);border-radius:.5rem;text-decoration:none;font-weight:600}
-.hero .cta:hover{filter:brightness(1.1)}
-.hero .cta.alt{background:none;color:var(--ink);border:1px solid var(--line);margin-left:.5rem}
-.job:hover h3{color:inherit}
+.hero p{max-width:36rem;font-size:1.25rem;color:var(--muted);margin:2rem 0 0}
+.cta{display:inline-block;margin-top:2rem;padding:.8rem 1.4rem;background:var(--accent);color:var(--accent-ink);border-radius:.6rem;text-decoration:none;font-weight:600}
+.cta:hover{filter:brightness(1.12)}
+.cta.alt{background:none;color:var(--ink);border:1px solid var(--line);margin-left:.5rem}
 section{padding:3.5rem 0;border-top:1px solid var(--line)}
-h2{font:600 1.75rem/1.2 var(--display);letter-spacing:-.01em;margin:0 0 2rem}
-.project{display:grid;grid-template-columns:1fr 2fr auto;gap:1.5rem;align-items:baseline;padding:1.5rem 0;border-bottom:1px solid var(--line);text-decoration:none}
-.project h3{margin:0;font:600 1.4rem/1.2 var(--display)}
-.project p{margin:0;color:var(--muted)}
-.project .tags{font-size:.9rem;color:var(--muted);text-align:right}
-.project:hover h3{color:var(--accent)}
+h2{font:600 1.9rem/1.2 var(--display);letter-spacing:-.01em;margin:0 0 .5rem}
+.lead{color:var(--muted);margin:0 0 2rem}
+details.cat{background:var(--surface);border:1px solid var(--line);border-radius:.9rem;margin-bottom:.75rem;overflow:hidden}
+details.cat summary{display:grid;grid-template-columns:1fr auto;gap:.2rem 1rem;align-items:center;padding:1.15rem 1.4rem;cursor:pointer;list-style:none}
+details.cat summary::-webkit-details-marker{display:none}
+details.cat summary h3{margin:0;font:600 1.3rem/1.2 var(--display)}
+details.cat summary p{margin:0;color:var(--muted);grid-column:1}
+details.cat summary::after{content:"+";grid-column:2;grid-row:1/3;font:400 1.8rem/1 var(--display);color:var(--accent);transition:transform .2s}
+details.cat[open] summary::after{transform:rotate(45deg)}
+details.cat:hover{border-color:var(--accent)}
+.panel{padding:0 1.4rem 1.4rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(9.5rem,1fr));gap:.6rem}
+.grid button{padding:0;border:1px solid var(--line);border-radius:.6rem;overflow:hidden;background:var(--bg);cursor:zoom-in;aspect-ratio:4/3;position:relative}
+.grid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s}
+.grid button:hover img{transform:scale(1.05)}
+.grid .play{position:absolute;inset:auto .5rem .5rem auto;background:var(--accent);color:var(--accent-ink);border-radius:999px;padding:.1rem .6rem;font-size:.8rem;font-weight:600}
+.more{display:inline-block;margin-top:1rem;color:var(--accent);font-weight:600}
+dialog{border:0;padding:0;background:transparent;max-width:min(92vw,64rem);width:100%}
+dialog::backdrop{background:rgba(20,15,8,.8)}
+.lb{background:var(--surface);border-radius:.9rem;padding:1rem;display:grid;gap:.75rem}
+.lb img,.lb iframe{width:100%;max-height:75vh;object-fit:contain;border:0;border-radius:.5rem;background:var(--bg)}
+.lb iframe{aspect-ratio:16/9;height:auto}
+.lb .bar{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.lb button{font:inherit;background:var(--accent);color:var(--accent-ink);border:0;border-radius:.5rem;padding:.4rem 1rem;cursor:pointer}
+.job{display:grid;grid-template-columns:1fr 2fr auto;gap:1.5rem;align-items:baseline;padding:1.5rem 0;border-bottom:1px solid var(--line)}
+.job h3{margin:0;font:600 1.3rem/1.2 var(--display)}.job p{margin:0;color:var(--muted)}.job .when{font-size:.9rem;color:var(--muted);text-align:right;white-space:nowrap}
 .about{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
 .about p{margin:0 0 1rem;max-width:34rem}
-.skills{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
-.skills li{border:1px solid var(--line);border-radius:999px;padding:.3rem .9rem}
-.contact a.mail{font:600 clamp(1.6rem,5vw,3rem)/1.1 var(--display);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:.2em}
+.skills{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem;align-content:flex-start}
+.skills li{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.3rem .9rem}
+.contact a.mail{font:600 clamp(1.5rem,5vw,3rem)/1.1 var(--display);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:.2em;overflow-wrap:anywhere}
 .links{display:flex;gap:1.5rem;margin-top:1.5rem;flex-wrap:wrap}
 footer{padding:2rem 0 3rem;color:var(--muted);font-size:.95rem}
-@media (max-width:44rem){.project{grid-template-columns:1fr;gap:.4rem}.project .tags{text-align:left}.about{grid-template-columns:1fr}nav a.hide{display:none}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero h1{transition:none}}
+@media (max-width:44rem){.job{grid-template-columns:1fr;gap:.3rem}.job .when{text-align:left}.about{grid-template-columns:1fr}nav a.hide{display:none}.cta.alt{margin-left:0}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero h1,details.cat summary::after,.grid img{transition:none}.pill i{animation:none}}
 </style>
 </head>
 <body>
-<div class="wrap">
-<header class="top">
+<header class="top"><div class="wrap">
   <strong>Von Aivan De Guzman</strong>
   <nav aria-label="Main">
     <a class="hide" href="#work">Work</a><a class="hide" href="#experience">Experience</a><a class="hide" href="#about">About</a><a href="#contact">Contact</a>
     <button id="theme" type="button" aria-label="Toggle light and dark theme">Theme</button>
   </nav>
-</header>
+</div></header>
 
-<main>
+<div class="wrap"><main>
 <div class="hero">
+  <span class="pill"><i></i>Open to new projects</span>
   <h1 id="name">Von Aivan De Guzman</h1>
   <p>Virtual assistant and designer. I handle executive support, IT help and social media, and I make the visuals too: AI video, e-commerce graphics, tarpaulins, backdrops and logos.</p>
-  <a class="cta" href="#work">See my work</a> <a class="cta alt" href="https://drive.google.com/file/d/1l7F6qOglE2mORwEy7xsiPVI2Djs-enco/view">View résumé</a>
+  <a class="cta" href="#work">See my work</a><a class="cta alt" href="https://drive.google.com/file/d/1l7F6qOglE2mORwEy7xsiPVI2Djs-enco/view">View résumé</a>
 </div>
 
 <section id="work" aria-labelledby="work-h">
   <h2 id="work-h">Selected work</h2>
+  <p class="lead">Open a category to see samples. Select any image to enlarge it.</p>
   <div id="projects"></div>
 </section>
 
@@ -93,42 +117,64 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.95rem}
   <h2 id="contact-h">Contact</h2>
   <a class="mail" href="mailto:vonaivan48@gmail.com">vonaivan48@gmail.com</a>
   <div class="links">
-    <a href="https://github.com/your-username">GitHub</a>
-    <a href="https://linkedin.com/in/your-username">LinkedIn</a>
+    <a href="https://github.com/vonaivan">GitHub</a>
+    <a href="https://www.linkedin.com/in/von-aivan-439793283/">LinkedIn</a>
   </div>
 </section>
 </main>
 <footer>© <span id="yr"></span> Von Aivan De Guzman. Open source under the MIT license.</footer>
 </div>
 
+<dialog id="lb" aria-label="Preview"><div class="lb"><div id="lbmedia"></div><div class="bar"><a id="lbopen" href="#" target="_blank" rel="noopener">Open in Google Drive</a><button type="button" id="lbclose">Close</button></div></div></dialog>
+
 <script>
-/* Each work item links to its Google Drive folder. Swap in GitHub Pages image links later. Edit these lists to customize the site. */
-var PROJECTS=[
- {title:"Skillo Innovations",text:"Brand and marketing images made for the Skillo Innovations business.",tags:"Branding",url:"https://drive.google.com/drive/folders/1kUgz_gGxHiELGM5WPK8UsW-yRcBBvRaX"},
- {title:"AI Video Generation",text:"Short video samples generated with AI tools.",tags:"Video, AI",url:"https://drive.google.com/drive/folders/1nJzjXPI8quePLxiRXD3vIvsO2Wugkjmk"},
- {title:"Real Estate",text:"AI-generated content for property marketing.",tags:"AI, Real estate",url:"https://drive.google.com/drive/folders/1FXG8PRarAS6qvvm-kpNw0_gFRvzyYM6O"},
- {title:"E-Commerce",text:"Product and store visuals for online selling.",tags:"E-commerce",url:"https://drive.google.com/drive/folders/1xti4ZjQVVmb0QiHbT9tpzmB6d8mGYdCh"},
- {title:"Tarpaulins",text:"Print-ready tarpaulin layouts sized for events and shops.",tags:"Print",url:"https://drive.google.com/drive/folders/1hkd2gfwre0K3y_asEVBF1xRdBU_7VFvn"},
- {title:"Backdrops",text:"Animated and still event backdrops.",tags:"Motion, Events",url:"https://drive.google.com/drive/folders/1YigqYHYiZNHhxtMNgQRqQa31xxTwacL3"},
- {title:"Business and hiring pages",text:"Page designs for business profiles and job postings.",tags:"Social, Web",url:"https://drive.google.com/drive/folders/1rD8BzDfR6cBsRlLFHdJ9yNFHAhMPVta8"},
- {title:"Customized logos",text:"Logos made to order for individual clients.",tags:"Identity",url:"https://drive.google.com/drive/folders/1Ki_TP7LYmEK2lrkr8yAOYJf7IV3LFB5W"}
+/* Edit these lists to customize the site. "files" are Google Drive file IDs (files must be shared as "Anyone with the link"). */
+var F="https://drive.google.com/drive/folders/";
+var WORK=[
+ {title:"Skillo Innovations",text:"Brand and marketing images for the Skillo Innovations business.",folder:"1kUgz_gGxHiELGM5WPK8UsW-yRcBBvRaX",files:"16y_r6Fb8bBMAWKLqEVRMBPtgk6BvTSiX 1FP2AESoWKdgNQ-LCedgCZkJtFeI2QUWK 1FAwxVwhqdcK3_EveBAN_edHHV1E5uAYt 1aqrT8JwnmUSvo6-mX5Jlid1u9Jd69vC1 1_rg08S87OHpo6wTA6nEqQ3zE5UJhBnyD 1QQFf4S722Ucikj4j6YiluX35nhl5U66W 1E-akeBi_ZRRRdjikZP-pIuh02KWI9dOP 18QIxllPA8gVNdJPWf3lRl3GUPfz7ZVtX 1urNOmVAEZ2XGoeB-MUTYaqZuZhiVb8Qj 14_Hk3zS2ahPi5iCQNcoKAMNmTBzAxCij 1Q8sI7KZKt250SCpEIoqKVtG_BBbtsRGp 1WPoiHWVxJ4loBq1MlRvTe8Dr7Cb_2NrK"},
+ {title:"AI video generation",text:"Short video samples made with AI tools.",folder:"1nJzjXPI8quePLxiRXD3vIvsO2Wugkjmk",video:true,files:"1mWcgLzgI0VOdE9YxskKJjyH568WffpfW 1Y6OiOjRE0EoKPlT75bO5L7JdLK9A5SuW 1jqb8lxDIpmENqU6VoY3l63H0MoCOiRu9"},
+ {title:"Real estate content",text:"AI-generated content for property marketing.",folder:"1FXG8PRarAS6qvvm-kpNw0_gFRvzyYM6O",files:""},
+ {title:"E-commerce",text:"Product and store visuals for online selling.",folder:"1xti4ZjQVVmb0QiHbT9tpzmB6d8mGYdCh",files:"1kdneEm7cStr3OXCuWUC6USQVlhI_ydLv 1Bs4KAGj9aLQaUYdbKB1G4Mqk5xDCpNNx 1lJZjRdogf5vlwjArJ-JSXUMgWIt8BfIk 1TuqtSPGBsk17syuruwteSjJrrREePWcf 1OYlf23dk6VsFEEtZuYzErI9G05370yrj 1y4Rs6Iu6Jr1EpePC3PmPRy3JRdhLR4Fz 1GgTcCGa6T5lJh8yD2KkHhd55LXQAqfw0 1RhHxKJ2HpSa7h1GLcXSskqjzcV5FYhs_ 181KK6oWIoq_keANp-L8gV9Tz7o1GHsVV 1Z9ARv54lxGuFkZgRtLnCRb2IFsStJOKf 1nD5HFoxd0FY2ooftEUuLZovCBuYeeHrA 1e9YUqaRDmQj0O8aviQGHFrCta8Z5xPZO"},
+ {title:"Tarpaulins",text:"Print-ready tarpaulin layouts sized for events and shops.",folder:"1hkd2gfwre0K3y_asEVBF1xRdBU_7VFvn",files:"10NbGniRpx-tbXzvJkj112i6r9lMbpI5l 1NCThqB1faVkE3iW6ijMWiKU59NxalfSR 11aWNf6ClVRO23AbPOjoNDWpFK79dvkX2 1e3dJ3HnpC7K2nz91z6At-GvZV0E1VxN1 1GkKw2C4qONlsurDOk77mbpkkpn77a2lL"},
+ {title:"Backdrops",text:"Animated and still event backdrops.",folder:"1YigqYHYiZNHhxtMNgQRqQa31xxTwacL3",files:"1NQvbCkTaUfk47jbzXObDzsAqctKEpGoK 123oweQ_pXHPXUPHlfc8g5aIU1fTTRYjG 1i3eI1PTKphT79ws4Zpnmg-YGrHv4SG-S 17TNGJkg1ZrcKdiIecY0EQNnrVJ6Kbp5O 1hguFkvfhfcgW7Irg69jICGXSbIWUzjwe 1i7VsrKaHywOKW4JIWd76BnNvQW-psK9f"},
+ {title:"Business page designs",text:"Layouts for business profile pages.",folder:"1rD8BzDfR6cBsRlLFHdJ9yNFHAhMPVta8",files:"1AOj7WuH3P6qCjBr9un-rM-znaRpQojED 1h2YPInsR6Qvj-9LCCrmC3w8JEYQ4We_t 14x2lwNAH-8VzmlH-n6_0gYu8KBOWnqAM 1ZFwJGFqLPVdGMSBtcGHG6-FvIkXo7Jec 1FQseimBQHhWqq8JJvxtYbnNz8mmasZnj 1cIqibQvdpLirOQiurxTerYfZtI4JoyuV 1ZVsPj6roGnjWy59AGKepJcC7_CrAaHqr 1BuS4Cup8CdA8VujHhCJeakHUmJXxtUdi 1CdOuOJhRSTDFYR9g4m8WNMwJBmnd8cLx 1fbePjHZE-5kNKYtJHUcGP0MZj_1luw1g"},
+ {title:"Hiring page designs",text:"Job posting graphics for recruitment pages.",folder:"1vMt5ZJmG1H8xODSvYrzmBFeKGpPu4Tul",files:"1dpSKp-kWr96wKYd75btaSPSUWDFfJf88 192KJD4n_itWMGdOanqtFtNYAoWugNvle 1lkatHCnqVHfOTiKV6iiQKsDZSWSh0UCU 17WfzlunsBfsYHDjWjiIzmuFWNx3jZlt1 17DgXAgQcz-IeQHLNVN7-cyFH3Kfl55rI 1KZodwn6hjtq6TxgZVnpqHI213vqLjS4c 1dF3xVplcm9wKTDR6Na-BylEfPkpX9fw4 19QbdvTkQTRO4oDPOkUKc11i7-dtP46KL 11zwL4R_wQsMPm7vSv3LqqjLCXSb4-jEK 1-cSh8VoYcv6-SPRFRmxh04uQMQCkPC7Q"},
+ {title:"Customized logos",text:"Logos made to order for individual clients.",folder:"1Ki_TP7LYmEK2lrkr8yAOYJf7IV3LFB5W",files:"1M7tR5VIojLJ0--sGKHXom8dXP87msKKC 1WqWS8hU6m2kuk1l6MvqwzxPxmJmzhrvV 1JNAuS9HYrcdERXnKvugHI9cEviYKQHq0 1QK9eakrK6oOB8ZfQUJeVfEqMwgKMId_- 1ztlfkwUVLMNORW5ytSy4qsRvnDiKfjUa"}
 ];
 var JOBS=[
- {title:"Executive Support and OIC, IT Department",text:"Virtual Experts Philippines OPC. Handled email, calendars and meetings, gave IT and software support, managed social media content and built AI workflows for content planning and scheduling.",tags:"Feb 2025 to Aug 2026"},
- {title:"Distribution, Operations and Fulfillment Support",text:"Quality control on purchased tickets, refunds and cancellations, inbound and outbound customer calls, and ticket transfers across marketplaces.",tags:"Jan 2023 to Nov 2024"},
- {title:"Ticket Purchaser",text:"Bought tickets for multiple marketplaces, including seasonal buying and high-risk events, and worked with the Fulfillment team on accurate, on-time orders.",tags:"Dec 2022 to Jan 2023"}
+ {title:"Executive Support and OIC, IT Department",text:"Virtual Experts Philippines OPC. Handled email, calendars and meetings, gave IT and software support, managed social media content and built AI workflows for content planning and scheduling.",when:"Feb 2025 to Aug 2026"},
+ {title:"Distribution, Operations and Fulfillment Support",text:"Quality control on purchased tickets, refunds and cancellations, inbound and outbound customer calls, and ticket transfers across marketplaces.",when:"Jan 2023 to Nov 2024"},
+ {title:"Ticket Purchaser",text:"Bought tickets for multiple marketplaces, including seasonal buying and high-risk events, and worked with the Fulfillment team on accurate, on-time orders.",when:"Dec 2022 to Jan 2023"}
 ];
 var SKILLS=["Executive support","Google Workspace","Microsoft Office","Photoshop","Canva","Video editing","Social media management","AI automation","IT troubleshooting","Customer service"];
 
 var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
-document.getElementById("projects").innerHTML=PROJECTS.map(function(p){
- return '<a class="project" href="'+esc(p.url)+'"><h3>'+esc(p.title)+'</h3><p>'+esc(p.text)+'</p><span class="tags">'+esc(p.tags)+'</span></a>'}).join("");
+var thumb=function(id,w){return "https://drive.google.com/thumbnail?id="+id+"&sz=w"+w};
+
+document.getElementById("projects").innerHTML=WORK.map(function(c,i){
+ var ids=c.files?c.files.split(" "):[];
+ var grid=ids.length?'<div class="grid">'+ids.map(function(id,n){
+  return '<button type="button" data-id="'+id+'" data-video="'+(c.video?1:0)+'" aria-label="Enlarge '+esc(c.title)+' sample '+(n+1)+'"><img loading="lazy" alt="'+esc(c.title)+' sample '+(n+1)+'" src="'+thumb(id,480)+'">'+(c.video?'<span class="play">Video</span>':'')+'</button>'}).join("")+'</div>':'<p class="lead">Samples for this category are in the full folder.</p>';
+ return '<details class="cat" name="work"><summary><h3>'+esc(c.title)+'</h3><p>'+esc(c.text)+'</p></summary><div class="panel">'+grid+'<a class="more" href="'+F+c.folder+'">View the full folder on Google Drive</a></div></details>'}).join("");
 document.getElementById("jobs").innerHTML=JOBS.map(function(j){
- return '<div class="project job"><h3>'+esc(j.title)+'</h3><p>'+esc(j.text)+'</p><span class="tags">'+esc(j.tags)+'</span></div>'}).join("");
+ return '<div class="job"><h3>'+esc(j.title)+'</h3><p>'+esc(j.text)+'</p><span class="when">'+esc(j.when)+'</span></div>'}).join("");
 document.getElementById("skills").innerHTML=SKILLS.map(function(s){return "<li>"+esc(s)+"</li>"}).join("");
 document.getElementById("yr").textContent=new Date().getFullYear();
 
-/* Headline reacts to the pointer: weight and width follow the cursor. */
+/* Lightbox */
+var lb=document.getElementById("lb"),media=document.getElementById("lbmedia");
+document.getElementById("projects").addEventListener("click",function(e){
+ var b=e.target.closest("button[data-id]");if(!b)return;
+ var id=b.dataset.id;
+ media.innerHTML=b.dataset.video==="1"?'<iframe src="https://drive.google.com/file/d/'+id+'/preview" allow="autoplay" allowfullscreen title="Video preview"></iframe>':'<img alt="Enlarged preview" src="'+thumb(id,1600)+'">';
+ document.getElementById("lbopen").href="https://drive.google.com/file/d/"+id+"/view";
+ lb.showModal();
+});
+document.getElementById("lbclose").addEventListener("click",function(){lb.close()});
+lb.addEventListener("click",function(e){if(e.target===lb)lb.close()});
+lb.addEventListener("close",function(){media.innerHTML=""});
+
+/* Headline reacts to the pointer. */
 var h=document.getElementById("name");
 if(!matchMedia("(prefers-reduced-motion:reduce)").matches){
  addEventListener("pointermove",function(e){
@@ -137,7 +183,7 @@ if(!matchMedia("(prefers-reduced-motion:reduce)").matches){
  });
 }
 
-/* Theme toggle, remembered when storage is available. */
+/* Theme toggle. */
 var root=document.documentElement;
 try{var saved=localStorage.getItem("theme");if(saved)root.setAttribute("data-theme",saved)}catch(e){}
 document.getElementById("theme").addEventListener("click",function(){

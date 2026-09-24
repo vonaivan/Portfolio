@@ -1,32 +1,28 @@
 # Von Aivan De Guzman — Portfolio
 
-A fast, accessible, single-file portfolio site. No build step, no dependencies.
+A fast, accessible portfolio site. No build step, no dependencies.
 
 ## Customize
 1. Open `index.html`.
-2. Replace "Your Name", the email, and the GitHub and LinkedIn links.
-3. Edit the `PROJECTS`, `JOBS` and `SKILLS` lists in the `<script>` block.
-4. Change the colors in the `:root` block at the top of the `<style>`.
+2. Edit the `WORK`, `JOBS` and `SKILLS` lists in the `<script>` block.
+3. Change the colors in the `:root` block at the top of the `<style>`.
+
+## Work dropdowns
+Each category in `WORK` reads its files from the `assets` folder, named `<category>-<number>`. Images are compressed WebP files with a small `-th` thumbnail, and videos are short MP4 files. To add a piece, put the files in `assets` using the same naming (`skillo-34.webp`, `skillo-34-th.webp`) and add an entry to that category's `items`.
+
+Keep images under about 2 MB and videos under about 6 MB. GitHub rejects any single file over 100 MB.
 
 ## Deploy on GitHub Pages
-1. Create a repository and push these files to the `main` branch.
+1. Push all files, including the `assets` folder, to the `main` branch.
 2. Go to **Settings → Pages**.
 3. Under **Source**, choose **Deploy from a branch**, select `main` and `/ (root)`, then save.
-4. Your site goes live at `https://<username>.github.io/<repo>/`. Name the repo `<username>.github.io` to use the root URL.
+4. Your site goes live at `https://<username>.github.io/<repo>/`.
 
 ## Features
 - Light and dark themes, following the system setting with a manual toggle
 - Headline that responds to the cursor (disabled for reduced-motion users)
+- Dropdown galleries with a full-size preview for images and videos
 - Responsive layout, keyboard focus styles, semantic HTML
 
 ## License
 MIT. See `LICENSE`.
-
-## Work dropdowns
-Each category in `WORK` lists Google Drive file IDs. Thumbnails only load if the files are shared as "Anyone with the link can view". To use your own hosted images instead, replace the `thumb()` function with paths to files in `assets/`.
-
-## Adding your images
-The work list links to public Google Drive folders. To show images on the site itself:
-1. Set each Drive folder to "Anyone with the link can view", or download the files.
-2. Export web-sized copies (under 2 MB each) into `assets/<category>/`. GitHub rejects files over 100 MB, and several originals (large PNGs and GIFs) are near or above that.
-3. Convert big GIFs to MP4 or WebM to keep pages fast.

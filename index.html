@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Von Aivan De Guzman — Virtual Assistant & Designer</title>
+<meta name="description" content="Von Aivan De Guzman: virtual assistant, graphic designer and social media manager. AI video, e-commerce visuals, print layouts, logos and brand pages.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef1f6;--ink:#16223b;--muted:#5a6680;--line:#c9d1e0;--accent:#2f4bff;--accent-ink:#fff;
+ --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;--body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1526;--ink:#e8ecf8;--muted:#95a1bf;--line:#26304d;--accent:#8ea0ff;--accent-ink:#0f1526}}
+:root[data-theme="dark"]{--bg:#0f1526;--ink:#e8ecf8;--muted:#95a1bf;--line:#26304d;--accent:#8ea0ff;--accent-ink:#0f1526}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{max-width:66rem;margin:0 auto;padding:0 1.5rem}
+header.top{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0}
+nav{display:flex;gap:1.5rem;align-items:center}
+nav a{text-decoration:none;color:var(--muted)}nav a:hover{color:var(--ink)}
+#theme{font:inherit;background:none;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:.3rem .9rem;cursor:pointer}
+#theme:hover{border-color:var(--accent)}
+.hero{padding:clamp(3rem,10vw,7rem) 0 clamp(3rem,8vw,5rem)}
+.hero h1{margin:0;font-family:var(--display);font-size:clamp(3rem,11vw,8.5rem);line-height:.95;letter-spacing:-.03em;
+ font-variation-settings:"wght" var(--w,700),"wdth" var(--wd,90),"opsz" 96;transition:font-variation-settings .15s linear}
+.hero p{max-width:34rem;font-size:1.25rem;color:var(--muted);margin:2rem 0 0}
+.hero .cta{display:inline-block;margin-top:2rem;padding:.8rem 1.4rem;background:var(--accent);color:var(--accent-ink);border-radius:.5rem;text-decoration:none;font-weight:600}
+.hero .cta:hover{filter:brightness(1.1)}
+.hero .cta.alt{background:none;color:var(--ink);border:1px solid var(--line);margin-left:.5rem}
+.job:hover h3{color:inherit}
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+h2{font:600 1.75rem/1.2 var(--display);letter-spacing:-.01em;margin:0 0 2rem}
+.project{display:grid;grid-template-columns:1fr 2fr auto;gap:1.5rem;align-items:baseline;padding:1.5rem 0;border-bottom:1px solid var(--line);text-decoration:none}
+.project h3{margin:0;font:600 1.4rem/1.2 var(--display)}
+.project p{margin:0;color:var(--muted)}
+.project .tags{font-size:.9rem;color:var(--muted);text-align:right}
+.project:hover h3{color:var(--accent)}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.about p{margin:0 0 1rem;max-width:34rem}
+.skills{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.skills li{border:1px solid var(--line);border-radius:999px;padding:.3rem .9rem}
+.contact a.mail{font:600 clamp(1.6rem,5vw,3rem)/1.1 var(--display);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:.2em}
+.links{display:flex;gap:1.5rem;margin-top:1.5rem;flex-wrap:wrap}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.95rem}
+@media (max-width:44rem){.project{grid-template-columns:1fr;gap:.4rem}.project .tags{text-align:left}.about{grid-template-columns:1fr}nav a.hide{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero h1{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <strong>Von Aivan De Guzman</strong>
+  <nav aria-label="Main">
+    <a class="hide" href="#work">Work</a><a class="hide" href="#experience">Experience</a><a class="hide" href="#about">About</a><a href="#contact">Contact</a>
+    <button id="theme" type="button" aria-label="Toggle light and dark theme">Theme</button>
+  </nav>
+</header>
+
+<main>
+<div class="hero">
+  <h1 id="name">Von Aivan De Guzman</h1>
+  <p>Virtual assistant and designer. I handle executive support, IT help and social media, and I make the visuals too: AI video, e-commerce graphics, tarpaulins, backdrops and logos.</p>
+  <a class="cta" href="#work">See my work</a> <a class="cta alt" href="https://drive.google.com/file/d/1l7F6qOglE2mORwEy7xsiPVI2Djs-enco/view">View résumé</a>
+</div>
+
+<section id="work" aria-labelledby="work-h">
+  <h2 id="work-h">Selected work</h2>
+  <div id="projects"></div>
+</section>
+
+<section id="experience" aria-labelledby="exp-h">
+  <h2 id="exp-h">Experience</h2>
+  <div id="jobs"></div>
+</section>
+
+<section id="about" aria-labelledby="about-h">
+  <h2 id="about-h">About</h2>
+  <div class="about">
+    <div>
+      <p>I support busy owners and teams with the daily work: email and calendars, IT troubleshooting, social media posting and the graphics and video that go with it. I hold a Bachelor of Science in Information Technology from St. Anthony’s College, Antique, Philippines.</p>
+      <p>I build AI-assisted workflows for social media planning and scheduling using ChatGPT, Claude and Metricool. I work in English and Filipino.</p>
+    </div>
+    <ul class="skills" id="skills" aria-label="Skills"></ul>
+  </div>
+</section>
+
+<section id="contact" class="contact" aria-labelledby="contact-h">
+  <h2 id="contact-h">Contact</h2>
+  <a class="mail" href="mailto:vonaivan48@gmail.com">vonaivan48@gmail.com</a>
+  <div class="links">
+    <a href="https://github.com/your-username">GitHub</a>
+    <a href="https://linkedin.com/in/your-username">LinkedIn</a>
+  </div>
+</section>
+</main>
+<footer>© <span id="yr"></span> Von Aivan De Guzman. Open source under the MIT license.</footer>
+</div>
+
+<script>
+/* Each work item links to its Google Drive folder. Swap in GitHub Pages image links later. Edit these lists to customize the site. */
+var PROJECTS=[
+ {title:"Skillo Innovations",text:"Brand and marketing images made for the Skillo Innovations business.",tags:"Branding",url:"https://drive.google.com/drive/folders/1kUgz_gGxHiELGM5WPK8UsW-yRcBBvRaX"},
+ {title:"AI Video Generation",text:"Short video samples generated with AI tools.",tags:"Video, AI",url:"https://drive.google.com/drive/folders/1nJzjXPI8quePLxiRXD3vIvsO2Wugkjmk"},
+ {title:"Real Estate",text:"AI-generated content for property marketing.",tags:"AI, Real estate",url:"https://drive.google.com/drive/folders/1FXG8PRarAS6qvvm-kpNw0_gFRvzyYM6O"},
+ {title:"E-Commerce",text:"Product and store visuals for online selling.",tags:"E-commerce",url:"https://drive.google.com/drive/folders/1xti4ZjQVVmb0QiHbT9tpzmB6d8mGYdCh"},
+ {title:"Tarpaulins",text:"Print-ready tarpaulin layouts sized for events and shops.",tags:"Print",url:"https://drive.google.com/drive/folders/1hkd2gfwre0K3y_asEVBF1xRdBU_7VFvn"},
+ {title:"Backdrops",text:"Animated and still event backdrops.",tags:"Motion, Events",url:"https://drive.google.com/drive/folders/1YigqYHYiZNHhxtMNgQRqQa31xxTwacL3"},
+ {title:"Business and hiring pages",text:"Page designs for business profiles and job postings.",tags:"Social, Web",url:"https://drive.google.com/drive/folders/1rD8BzDfR6cBsRlLFHdJ9yNFHAhMPVta8"},
+ {title:"Customized logos",text:"Logos made to order for individual clients.",tags:"Identity",url:"https://drive.google.com/drive/folders/1Ki_TP7LYmEK2lrkr8yAOYJf7IV3LFB5W"}
+];
+var JOBS=[
+ {title:"Executive Support and OIC, IT Department",text:"Virtual Experts Philippines OPC. Handled email, calendars and meetings, gave IT and software support, managed social media content and built AI workflows for content planning and scheduling.",tags:"Feb 2025 to Aug 2026"},
+ {title:"Distribution, Operations and Fulfillment Support",text:"Quality control on purchased tickets, refunds and cancellations, inbound and outbound customer calls, and ticket transfers across marketplaces.",tags:"Jan 2023 to Nov 2024"},
+ {title:"Ticket Purchaser",text:"Bought tickets for multiple marketplaces, including seasonal buying and high-risk events, and worked with the Fulfillment team on accurate, on-time orders.",tags:"Dec 2022 to Jan 2023"}
+];
+var SKILLS=["Executive support","Google Workspace","Microsoft Office","Photoshop","Canva","Video editing","Social media management","AI automation","IT troubleshooting","Customer service"];
+
+var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
+document.getElementById("projects").innerHTML=PROJECTS.map(function(p){
+ return '<a class="project" href="'+esc(p.url)+'"><h3>'+esc(p.title)+'</h3><p>'+esc(p.text)+'</p><span class="tags">'+esc(p.tags)+'</span></a>'}).join("");
+document.getElementById("jobs").innerHTML=JOBS.map(function(j){
+ return '<div class="project job"><h3>'+esc(j.title)+'</h3><p>'+esc(j.text)+'</p><span class="tags">'+esc(j.tags)+'</span></div>'}).join("");
+document.getElementById("skills").innerHTML=SKILLS.map(function(s){return "<li>"+esc(s)+"</li>"}).join("");
+document.getElementById("yr").textContent=new Date().getFullYear();
+
+/* Headline reacts to the pointer: weight and width follow the cursor. */
+var h=document.getElementById("name");
+if(!matchMedia("(prefers-reduced-motion:reduce)").matches){
+ addEventListener("pointermove",function(e){
+  h.style.setProperty("--w",Math.round(300+e.clientX/innerWidth*500));
+  h.style.setProperty("--wd",Math.round(75+e.clientY/innerHeight*25));
+ });
+}
+
+/* Theme toggle, remembered when storage is available. */
+var root=document.documentElement;
+try{var saved=localStorage.getItem("theme");if(saved)root.setAttribute("data-theme",saved)}catch(e){}
+document.getElementById("theme").addEventListener("click",function(){
+ var dark=root.getAttribute("data-theme")==="dark"||(!root.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme:dark)").matches);
+ var next=dark?"light":"dark";root.setAttribute("data-theme",next);
+ try{localStorage.setItem("theme",next)}catch(e){}
+});
+</script>
+</body>
+</html>

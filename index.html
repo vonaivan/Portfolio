@@ -52,12 +52,13 @@ details.cat:hover{border-color:var(--accent)}
 .grid button{padding:0;border:1px solid var(--line);border-radius:.6rem;overflow:hidden;background:var(--bg);cursor:zoom-in;aspect-ratio:4/3;position:relative}
 .grid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s}
 .grid button:hover img{transform:scale(1.05)}
+.grid.contain img{object-fit:contain;padding:.5rem}
 .grid .play{position:absolute;inset:auto .5rem .5rem auto;background:var(--accent);color:var(--accent-ink);border-radius:999px;padding:.1rem .6rem;font-size:.8rem;font-weight:600}
 .more{display:inline-block;margin-top:1rem;color:var(--accent);font-weight:600}
 dialog{border:0;padding:0;background:transparent;max-width:min(92vw,64rem);width:100%}
 dialog::backdrop{background:rgba(20,15,8,.8)}
 .lb{background:var(--surface);border-radius:.9rem;padding:1rem;display:grid;gap:.75rem}
-.lb img,.lb iframe{width:100%;max-height:75vh;object-fit:contain;border:0;border-radius:.5rem;background:var(--bg)}
+.lb img,.lb video,.lb iframe{width:100%;max-height:75vh;object-fit:contain;border:0;border-radius:.5rem;background:var(--bg)}
 .lb iframe{aspect-ratio:16/9;height:auto}
 .lb .bar{display:flex;justify-content:space-between;align-items:center;gap:1rem}
 .lb button{font:inherit;background:var(--accent);color:var(--accent-ink);border:0;border-radius:.5rem;padding:.4rem 1rem;cursor:pointer}
@@ -125,22 +126,19 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.95rem}
 <footer>© <span id="yr"></span> Von Aivan De Guzman. Open source under the MIT license.</footer>
 </div>
 
-<dialog id="lb" aria-label="Preview"><div class="lb"><div id="lbmedia"></div><div class="bar"><a id="lbopen" href="#" target="_blank" rel="noopener">Open in Google Drive</a><button type="button" id="lbclose">Close</button></div></div></dialog>
+<dialog id="lb" aria-label="Preview"><div class="lb"><div id="lbmedia"></div><div class="bar"><a id="lbopen" href="#" target="_blank" rel="noopener">Open full size</a><button type="button" id="lbclose">Close</button></div></div></dialog>
 
 <script>
-/* Edit these lists to customize the site. "files" are Google Drive file IDs (files must be shared as "Anyone with the link"). */
-var F="https://drive.google.com/drive/folders/";
-var WORK=[
- {title:"Skillo Innovations",text:"Brand and marketing images for the Skillo Innovations business.",folder:"1kUgz_gGxHiELGM5WPK8UsW-yRcBBvRaX",files:"16y_r6Fb8bBMAWKLqEVRMBPtgk6BvTSiX 1FP2AESoWKdgNQ-LCedgCZkJtFeI2QUWK 1FAwxVwhqdcK3_EveBAN_edHHV1E5uAYt 1aqrT8JwnmUSvo6-mX5Jlid1u9Jd69vC1 1_rg08S87OHpo6wTA6nEqQ3zE5UJhBnyD 1QQFf4S722Ucikj4j6YiluX35nhl5U66W 1E-akeBi_ZRRRdjikZP-pIuh02KWI9dOP 18QIxllPA8gVNdJPWf3lRl3GUPfz7ZVtX 1urNOmVAEZ2XGoeB-MUTYaqZuZhiVb8Qj 14_Hk3zS2ahPi5iCQNcoKAMNmTBzAxCij 1Q8sI7KZKt250SCpEIoqKVtG_BBbtsRGp 1WPoiHWVxJ4loBq1MlRvTe8Dr7Cb_2NrK"},
- {title:"AI video generation",text:"Short video samples made with AI tools.",folder:"1nJzjXPI8quePLxiRXD3vIvsO2Wugkjmk",video:true,files:"1mWcgLzgI0VOdE9YxskKJjyH568WffpfW 1Y6OiOjRE0EoKPlT75bO5L7JdLK9A5SuW 1jqb8lxDIpmENqU6VoY3l63H0MoCOiRu9"},
- {title:"Real estate content",text:"AI-generated content for property marketing.",folder:"1FXG8PRarAS6qvvm-kpNw0_gFRvzyYM6O",files:""},
- {title:"E-commerce",text:"Product and store visuals for online selling.",folder:"1xti4ZjQVVmb0QiHbT9tpzmB6d8mGYdCh",files:"1kdneEm7cStr3OXCuWUC6USQVlhI_ydLv 1Bs4KAGj9aLQaUYdbKB1G4Mqk5xDCpNNx 1lJZjRdogf5vlwjArJ-JSXUMgWIt8BfIk 1TuqtSPGBsk17syuruwteSjJrrREePWcf 1OYlf23dk6VsFEEtZuYzErI9G05370yrj 1y4Rs6Iu6Jr1EpePC3PmPRy3JRdhLR4Fz 1GgTcCGa6T5lJh8yD2KkHhd55LXQAqfw0 1RhHxKJ2HpSa7h1GLcXSskqjzcV5FYhs_ 181KK6oWIoq_keANp-L8gV9Tz7o1GHsVV 1Z9ARv54lxGuFkZgRtLnCRb2IFsStJOKf 1nD5HFoxd0FY2ooftEUuLZovCBuYeeHrA 1e9YUqaRDmQj0O8aviQGHFrCta8Z5xPZO"},
- {title:"Tarpaulins",text:"Print-ready tarpaulin layouts sized for events and shops.",folder:"1hkd2gfwre0K3y_asEVBF1xRdBU_7VFvn",files:"10NbGniRpx-tbXzvJkj112i6r9lMbpI5l 1NCThqB1faVkE3iW6ijMWiKU59NxalfSR 11aWNf6ClVRO23AbPOjoNDWpFK79dvkX2 1e3dJ3HnpC7K2nz91z6At-GvZV0E1VxN1 1GkKw2C4qONlsurDOk77mbpkkpn77a2lL"},
- {title:"Backdrops",text:"Animated and still event backdrops.",folder:"1YigqYHYiZNHhxtMNgQRqQa31xxTwacL3",files:"1NQvbCkTaUfk47jbzXObDzsAqctKEpGoK 123oweQ_pXHPXUPHlfc8g5aIU1fTTRYjG 1i3eI1PTKphT79ws4Zpnmg-YGrHv4SG-S 17TNGJkg1ZrcKdiIecY0EQNnrVJ6Kbp5O 1hguFkvfhfcgW7Irg69jICGXSbIWUzjwe 1i7VsrKaHywOKW4JIWd76BnNvQW-psK9f"},
- {title:"Business page designs",text:"Layouts for business profile pages.",folder:"1rD8BzDfR6cBsRlLFHdJ9yNFHAhMPVta8",files:"1AOj7WuH3P6qCjBr9un-rM-znaRpQojED 1h2YPInsR6Qvj-9LCCrmC3w8JEYQ4We_t 14x2lwNAH-8VzmlH-n6_0gYu8KBOWnqAM 1ZFwJGFqLPVdGMSBtcGHG6-FvIkXo7Jec 1FQseimBQHhWqq8JJvxtYbnNz8mmasZnj 1cIqibQvdpLirOQiurxTerYfZtI4JoyuV 1ZVsPj6roGnjWy59AGKepJcC7_CrAaHqr 1BuS4Cup8CdA8VujHhCJeakHUmJXxtUdi 1CdOuOJhRSTDFYR9g4m8WNMwJBmnd8cLx 1fbePjHZE-5kNKYtJHUcGP0MZj_1luw1g"},
- {title:"Hiring page designs",text:"Job posting graphics for recruitment pages.",folder:"1vMt5ZJmG1H8xODSvYrzmBFeKGpPu4Tul",files:"1dpSKp-kWr96wKYd75btaSPSUWDFfJf88 192KJD4n_itWMGdOanqtFtNYAoWugNvle 1lkatHCnqVHfOTiKV6iiQKsDZSWSh0UCU 17WfzlunsBfsYHDjWjiIzmuFWNx3jZlt1 17DgXAgQcz-IeQHLNVN7-cyFH3Kfl55rI 1KZodwn6hjtq6TxgZVnpqHI213vqLjS4c 1dF3xVplcm9wKTDR6Na-BylEfPkpX9fw4 19QbdvTkQTRO4oDPOkUKc11i7-dtP46KL 11zwL4R_wQsMPm7vSv3LqqjLCXSb4-jEK 1-cSh8VoYcv6-SPRFRmxh04uQMQCkPC7Q"},
- {title:"Customized logos",text:"Logos made to order for individual clients.",folder:"1Ki_TP7LYmEK2lrkr8yAOYJf7IV3LFB5W",files:"1M7tR5VIojLJ0--sGKHXom8dXP87msKKC 1WqWS8hU6m2kuk1l6MvqwzxPxmJmzhrvV 1JNAuS9HYrcdERXnKvugHI9cEviYKQHq0 1QK9eakrK6oOB8ZfQUJeVfEqMwgKMId_- 1ztlfkwUVLMNORW5ytSy4qsRvnDiKfjUa"}
-];
+/* Edit these lists. Each work item is [file number, "i" image or "v" video, alt text, 1 if it should loop]. Files live in assets/<slug>/. */
+var WORK=[{"slug":"skillo","title":"Skillo Innovations","text":"Brand and marketing images for the Skillo Innovations business.","contain":0,"items":[["01","i","Skillo Innovations sample 1"],["02","i","Skillo Innovations sample 2"],["03","i","Skillo Innovations sample 3"],["04","i","Skillo Innovations sample 4"],["05","i","Skillo Innovations sample 5"],["06","i","Skillo Innovations sample 6"],["07","i","Skillo Innovations sample 7"],["08","i","Skillo Innovations sample 8"],["09","i","Skillo Innovations sample 9"],["10","i","Skillo Innovations sample 10"],["11","i","Skillo Innovations sample 11"],["12","i","Skillo Innovations sample 12"],["13","i","Skillo Innovations sample 13"],["14","i","Skillo Innovations sample 14"],["15","i","Skillo Innovations sample 15"],["16","i","Skillo Innovations sample 16"],["17","i","Skillo Innovations sample 17"],["18","i","Skillo Innovations sample 18"],["19","i","Skillo Innovations sample 19"],["20","i","Skillo Innovations sample 20"],["21","i","Skillo Innovations sample 21"],["22","i","Skillo Innovations sample 22"],["23","i","Skillo Innovations sample 23"],["24","i","Skillo Innovations sample 24"],["25","i","Skillo Innovations sample 25"],["26","i","Skillo Innovations sample 26"],["27","i","Skillo Innovations sample 27"],["28","i","Skillo Innovations sample 28"],["29","i","Skillo Innovations sample 29"],["30","i","Skillo Innovations sample 30"],["31","i","Skillo Innovations sample 31"],["32","i","Skillo Innovations sample 32"],["33","i","Skillo Innovations sample 33"]]},
+{"slug":"ai-video","title":"AI video generation","text":"Short video samples made with AI tools.","contain":0,"items":[["01","v","AI video generation sample 1"],["02","v","AI video generation sample 2"],["03","v","AI video generation sample 3"]]},
+{"slug":"real-estate","title":"Real estate content","text":"AI-generated flyers and an image-to-video sample for property marketing.","contain":0,"items":[["01","i","Real estate content sample 1"],["02","i","Real estate content sample 2"],["03","i","Real estate content sample 3"],["04","i","Real estate content sample 4"],["05","v","Real estate content sample 5"]]},
+{"slug":"e-commerce","title":"E-commerce","text":"Product and store visuals for online selling.","contain":0,"items":[["01","i","E-commerce sample 1"],["02","i","E-commerce sample 2"],["03","i","E-commerce sample 3"],["04","i","E-commerce sample 4"],["05","i","E-commerce sample 5"],["06","i","E-commerce sample 6"],["07","i","E-commerce sample 7"],["08","i","E-commerce sample 8"],["09","i","E-commerce sample 9"],["10","i","E-commerce sample 10"],["11","i","E-commerce sample 11"],["12","i","E-commerce sample 12"],["13","i","E-commerce sample 13"],["14","i","E-commerce sample 14"],["15","i","E-commerce sample 15"]]},
+{"slug":"tarpaulins","title":"Tarpaulins","text":"Print-ready tarpaulin layouts sized for events and shops.","contain":1,"items":[["01","i","Tarpaulins sample 1"],["02","i","Tarpaulins sample 2"],["03","i","Tarpaulins sample 3"],["04","i","Tarpaulins sample 4"],["05","i","Tarpaulins sample 5"]]},
+{"slug":"backdrops","title":"Backdrops","text":"Animated and still event backdrops.","contain":0,"items":[["01","i","Backdrops sample 1"],["02","i","Backdrops sample 2"],["03","i","Backdrops sample 3"],["04","v","Backdrops sample 4",1],["05","v","Backdrops sample 5",1],["06","v","Backdrops sample 6",1]]},
+{"slug":"business-page","title":"Business page designs","text":"Layouts for business profile pages.","contain":0,"items":[["01","i","Business page designs sample 1"],["02","i","Business page designs sample 2"],["03","i","Business page designs sample 3"],["04","i","Business page designs sample 4"],["05","i","Business page designs sample 5"],["06","i","Business page designs sample 6"],["07","i","Business page designs sample 7"],["08","i","Business page designs sample 8"],["09","i","Business page designs sample 9"],["10","i","Business page designs sample 10"]]},
+{"slug":"hiring-page","title":"Hiring page designs","text":"Job posting graphics for recruitment pages.","contain":0,"items":[["01","i","Hiring page designs sample 1"],["02","i","Hiring page designs sample 2"],["03","i","Hiring page designs sample 3"],["04","i","Hiring page designs sample 4"],["05","i","Hiring page designs sample 5"],["06","i","Hiring page designs sample 6"],["07","i","Hiring page designs sample 7"],["08","i","Hiring page designs sample 8"],["09","i","Hiring page designs sample 9"],["10","i","Hiring page designs sample 10"]]},
+{"slug":"logos","title":"Customized logos","text":"Logos made to order for individual clients.","contain":1,"items":[["01","i","Academy"],["02","i","Chili oil"],["03","i","Clothing"],["04","i","E-Commerce"],["05","i","Training Center"],["06","i","Virtual Experts"]]}];
 var JOBS=[
  {title:"Executive Support and OIC, IT Department",text:"Virtual Experts Philippines OPC. Handled email, calendars and meetings, gave IT and software support, managed social media content and built AI workflows for content planning and scheduling.",when:"Feb 2025 to Aug 2026"},
  {title:"Distribution, Operations and Fulfillment Support",text:"Quality control on purchased tickets, refunds and cancellations, inbound and outbound customer calls, and ticket transfers across marketplaces.",when:"Jan 2023 to Nov 2024"},
@@ -149,13 +147,12 @@ var JOBS=[
 var SKILLS=["Executive support","Google Workspace","Microsoft Office","Photoshop","Canva","Video editing","Social media management","AI automation","IT troubleshooting","Customer service"];
 
 var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
-var thumb=function(id,w){return "https://drive.google.com/thumbnail?id="+id+"&sz=w"+w};
+var A=function(c,it,th){return "assets/"+c.slug+"/"+it[0]+(th?"-th.webp":it[1]==="v"?".mp4":".webp")};
 
-document.getElementById("projects").innerHTML=WORK.map(function(c,i){
- var ids=c.files?c.files.split(" "):[];
- var grid=ids.length?'<div class="grid">'+ids.map(function(id,n){
-  return '<button type="button" data-id="'+id+'" data-video="'+(c.video?1:0)+'" aria-label="Enlarge '+esc(c.title)+' sample '+(n+1)+'"><img loading="lazy" alt="'+esc(c.title)+' sample '+(n+1)+'" src="'+thumb(id,480)+'">'+(c.video?'<span class="play">Video</span>':'')+'</button>'}).join("")+'</div>':'<p class="lead">Samples for this category are in the full folder.</p>';
- return '<details class="cat" name="work"><summary><h3>'+esc(c.title)+'</h3><p>'+esc(c.text)+'</p></summary><div class="panel">'+grid+'<a class="more" href="'+F+c.folder+'">View the full folder on Google Drive</a></div></details>'}).join("");
+document.getElementById("projects").innerHTML=WORK.map(function(c){
+ var grid='<div class="grid'+(c.contain?' contain':'')+'">'+c.items.map(function(it,n){
+  return '<button type="button" data-c="'+c.slug+'" data-n="'+n+'" aria-label="Enlarge: '+esc(it[2])+'"><img loading="lazy" alt="'+esc(it[2])+'" src="'+A(c,it,1)+'">'+(it[1]==="v"?'<span class="play">Video</span>':'')+'</button>'}).join("")+'</div>';
+ return '<details class="cat" name="work"><summary><h3>'+esc(c.title)+'</h3><p>'+esc(c.text)+' ('+c.items.length+')</p></summary><div class="panel">'+grid+'</div></details>'}).join("");
 document.getElementById("jobs").innerHTML=JOBS.map(function(j){
  return '<div class="job"><h3>'+esc(j.title)+'</h3><p>'+esc(j.text)+'</p><span class="when">'+esc(j.when)+'</span></div>'}).join("");
 document.getElementById("skills").innerHTML=SKILLS.map(function(s){return "<li>"+esc(s)+"</li>"}).join("");
@@ -164,10 +161,10 @@ document.getElementById("yr").textContent=new Date().getFullYear();
 /* Lightbox */
 var lb=document.getElementById("lb"),media=document.getElementById("lbmedia");
 document.getElementById("projects").addEventListener("click",function(e){
- var b=e.target.closest("button[data-id]");if(!b)return;
- var id=b.dataset.id;
- media.innerHTML=b.dataset.video==="1"?'<iframe src="https://drive.google.com/file/d/'+id+'/preview" allow="autoplay" allowfullscreen title="Video preview"></iframe>':'<img alt="Enlarged preview" src="'+thumb(id,1600)+'">';
- document.getElementById("lbopen").href="https://drive.google.com/file/d/"+id+"/view";
+ var b=e.target.closest("button[data-c]");if(!b)return;
+ var c=WORK.filter(function(w){return w.slug===b.dataset.c})[0],it=c.items[+b.dataset.n],u=A(c,it,0);
+ media.innerHTML=it[1]==="v"?'<video src="'+u+'" poster="'+A(c,it,1)+'" controls autoplay muted playsinline'+(it[3]?' loop':'')+'></video>':'<img alt="'+esc(it[2])+'" src="'+u+'">';
+ document.getElementById("lbopen").href=u;
  lb.showModal();
 });
 document.getElementById("lbclose").addEventListener("click",function(){lb.close()});
